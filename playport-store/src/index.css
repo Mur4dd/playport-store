@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import "tailwindcss";
+
+@theme{
+  --font-gemunu: "Gemunu Libre", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-open: "Open Sans", sans-serif;
+}
