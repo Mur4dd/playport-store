@@ -90,11 +90,11 @@ function index() {
 
                     {/* Dropdown Menu */}
                     {isDropdownVisible && (
-                        <div className='md:hidden font-semibold absolute z-50 top-full left-0 bg-white rounded-lg shadow-lg p-4 w-full'>
+                        <div className='md:hidden flex justify-center font-semibold absolute z-50 top-full left-0 bg-white rounded-lg shadow-lg p-4 w-full'>
                         <ul className='space-y-2'>
-                            <li><a href="#" className='block text-black hover:text-blue-800 transition duration-300'>haqqımızda</a></li>
-                            <li><a href="#" className='block text-black hover:text-blue-800 transition duration-300'>məhsullar</a></li>
-                            <li><a href="#" className='block text-black hover:text-blue-800 transition duration-300'>əlaqə</a></li>
+                            <li><a href="#" className='block text-black hover:text-blue-900 transition duration-300 border-l-1 pl-0.5'>haqqımızda</a></li>
+                            <li><a href="#" className='block text-black hover:text-blue-900 transition duration-300 border-l-1 pl-0.5'>məhsullar</a></li>
+                            <li><a href="#" className='block text-black hover:text-blue-900 transition duration-300 border-l-1 pl-0.5'>əlaqə</a></li>
                         </ul>
                     </div>
                     )}
