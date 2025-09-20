@@ -1,12 +1,20 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { getAllProducts, productSlice } from '../../redux/slices/productSlice'
+import { useDispatch, useSelector } from 'react-redux'
 
 function index() {
     const [searchProduct, setSearchProduct] = useState('')
     const [searchResults, setSearchResults] = useState([])
     const [isDropdownVisible, setIsDropdownVisible] = useState(false)
+
+    const dispatch = useDispatch()
+    useEffect(() => {
+      dispatch(getAllProducts())
+    }, [])
+    const {products} = useSelector( store => store.products)
 
     const toggleDropdown = () => {
         setIsDropdownVisible(!isDropdownVisible)
@@ -17,20 +25,11 @@ function index() {
         console.log(e.target.value)
     }
 
-    const checkAndShowSearch = async () => {
-        try {
-            const response = await axios.get('http://localhost:3001/products')
-            const products = response.data
-            console.log(products);
-
-            const filteredProducts = products.filter(product =>
-                product.brand.toLowerCase().includes(searchProduct.toLowerCase())
-            );
-            setSearchResults(filteredProducts)
-        } catch (error) {
-            console.error('Xəta baş verdi:', error);
-        }
-
+    const checkAndShowSearch = () => {
+        const filteredProducts = products.filter(product =>
+            product.brand.toLowerCase().includes(searchProduct.toLowerCase())
+        );
+        setSearchResults(filteredProducts)
     }
 
     return (
@@ -58,13 +57,13 @@ function index() {
                                     onChange={handleSearch}
                                     className='w-16 border-b border-white focus:outline-0 focus:border-b-blue-800 transition duration-300' />
                                 <label htmlFor="searchProductMobile"><FontAwesomeIcon icon={faMagnifyingGlass} className='text-[20px]' /></label>
-                                
+
                             </form>
                             {/* Dropdown Search Result */}
                             <div className={`absolute top-full left-0 bg-white rounded-full ${searchResults.length === 0 ? 'hidden' : ''}`}>
                                 {searchResults.length > 0 && (
                                     <ul className='bg-white text-black rounded-lg shadow-lg p-4'>
-                                        {searchResults.map(result =>(
+                                        {searchResults.map(result => (
                                             <li key={result.id} className='flex items-center py-2 px-4 hover:bg-gray-100 cursor-pointer'>
                                                 <div className='w-[50px] h-[25px] rounded-full'>
                                                     <img src={result.image} alt="photo" className='w-[50px] h-[25px]' />
@@ -80,8 +79,8 @@ function index() {
                             </div>
                         </div>
                         <div
-                        onClick={toggleDropdown} 
-                        className='flex flex-col gap-1 items-center pr-2 md:pr-0 hover:cursor-pointer group'>
+                            onClick={toggleDropdown}
+                            className='flex flex-col gap-1 items-center pr-2 md:pr-0 hover:cursor-pointer group'>
                             <div className='w-5 h-0.5 rounded-full bg-white group-hover:bg-blue-800 transition duration-300'></div>
                             <div className='w-5 h-0.5 rounded-full bg-white group-hover:bg-blue-800 transition duration-300'></div>
                             <div className='w-5 h-0.5 rounded-full bg-white group-hover:bg-blue-800 transition duration-300'></div>
@@ -91,12 +90,12 @@ function index() {
                     {/* Dropdown Menu */}
                     {isDropdownVisible && (
                         <div className='md:hidden flex justify-center font-semibold absolute z-50 top-full left-0 bg-white rounded-lg shadow-lg p-4 w-full'>
-                        <ul className='space-y-2'>
-                            <li><a href="#" className='block text-black hover:text-blue-900 transition duration-300 border-l-1 pl-0.5'>haqqımızda</a></li>
-                            <li><a href="#" className='block text-black hover:text-blue-900 transition duration-300 border-l-1 pl-0.5'>məhsullar</a></li>
-                            <li><a href="#" className='block text-black hover:text-blue-900 transition duration-300 border-l-1 pl-0.5'>əlaqə</a></li>
-                        </ul>
-                    </div>
+                            <ul className='space-y-2'>
+                                <li><a href="#" className='block text-black hover:text-blue-900 transition duration-300 border-l-1 pl-0.5'>haqqımızda</a></li>
+                                <li><a href="#" className='block text-black hover:text-blue-900 transition duration-300 border-l-1 pl-0.5'>məhsullar</a></li>
+                                <li><a href="#" className='block text-black hover:text-blue-900 transition duration-300 border-l-1 pl-0.5'>əlaqə</a></li>
+                            </ul>
+                        </div>
                     )}
 
                     {/* Navigation */}
@@ -127,7 +126,7 @@ function index() {
                             <div className={`absolute top-full left-0 bg-white rounded-full ${searchResults.length === 0 ? 'hidden' : ''}`}>
                                 {searchResults.length > 0 && (
                                     <ul className='bg-white text-black rounded-lg shadow-lg p-4'>
-                                        {searchResults.map(result =>(
+                                        {searchResults.map(result => (
                                             <li key={result.id} className='flex items-center py-2 px-4 hover:bg-gray-100 cursor-pointer'>
                                                 <div className='w-[100px] h-[50px] rounded-full'>
                                                     <img src={result.image} alt="photo" className='w-[100px] h-[50px]' />
