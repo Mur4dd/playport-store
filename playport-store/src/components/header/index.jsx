@@ -9,6 +9,7 @@ function index() {
     const [searchProduct, setSearchProduct] = useState('')
     const [searchResults, setSearchResults] = useState([])
     const [isDropdownVisible, setIsDropdownVisible] = useState(false)
+    const [isSearchFocused, setIsSearchFocused] = useState(false)
 
     const dispatch = useDispatch()
     useEffect(() => {
@@ -23,6 +24,16 @@ function index() {
     const handleSearch = (e) => {
         setSearchProduct(e.target.value)
         console.log(e.target.value)
+    }
+
+    const handleSearchFocus = () => {
+        setIsSearchFocused(true)
+    }
+
+    const handleSearchBlur = () => {
+        setTimeout(() => {
+            setIsSearchFocused(false)
+        }, 200)
     }
 
     const checkAndShowSearch = () => {
@@ -55,13 +66,15 @@ function index() {
                                     id="searchProductMobile"
                                     value={searchProduct}
                                     onChange={handleSearch}
-                                    className='w-16 border-b border-white focus:outline-0 focus:border-b-blue-800 transition duration-300' />
+                                    onFocus={handleSearchFocus}
+                                    onBlur={handleSearchBlur}
+                                    className='w-16 border-b border-white focus:outline-0 focus:border-b-blue-800 transition duration-300 bg-transparent' />
                                 <label htmlFor="searchProductMobile"><FontAwesomeIcon icon={faMagnifyingGlass} className='text-[20px]' /></label>
 
                             </form>
                             {/* Dropdown Search Result */}
-                            <div className={`absolute top-full left-0 bg-white rounded-full ${searchResults.length === 0 ? 'hidden' : ''}`}>
-                                {searchResults.length > 0 && (
+                            <div className={`absolute z-[999] top-full left-0 bg-white rounded-full ${isSearchFocused && searchResults.length > 0 ? '' : 'hidden'}`}>
+                                {isSearchFocused && searchResults.length > 0 && (
                                     <ul className='bg-white text-black rounded-lg shadow-lg p-4'>
                                         {searchResults.map(result => (
                                             <li key={result.id} className='flex items-center py-2 px-4 hover:bg-gray-100 cursor-pointer'>
@@ -119,12 +132,14 @@ function index() {
                                     id="searchProductDesktop"
                                     value={searchProduct}
                                     onChange={handleSearch}
-                                    className='w-16 lg:w-24 xl:w-36 border-b border-white focus:outline-0 focus:border-b-blue-800 transition duration-300' />
+                                    onFocus={handleSearchFocus}
+                                    onBlur={handleSearchBlur}
+                                    className='w-16 lg:w-24 xl:w-36 border-b border-white focus:outline-0 focus:border-b-blue-800 transition duration-300 bg-transparent' />
                                 <label htmlFor="searchProductDesktop"><FontAwesomeIcon icon={faMagnifyingGlass} className='text-[20px]' /></label>
                             </form>
                             {/* Dropdown Search Result */}
-                            <div className={`absolute top-full left-0 bg-white rounded-full ${searchResults.length === 0 ? 'hidden' : ''}`}>
-                                {searchResults.length > 0 && (
+                            <div className={`absolute z-[999] top-full left-0 bg-white rounded-full ${isSearchFocused && searchResults.length > 0 ? '' : 'hidden'}`}>
+                                {isSearchFocused && searchResults.length > 0 && (
                                     <ul className='bg-white text-black rounded-lg shadow-lg p-4'>
                                         {searchResults.map(result => (
                                             <li key={result.id} className='flex items-center py-2 px-4 hover:bg-gray-100 cursor-pointer'>
