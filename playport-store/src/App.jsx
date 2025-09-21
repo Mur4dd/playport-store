@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './components/header'
 import Hero from './components/hero'
+import Cataloge from './components/catalog'
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
     <>
       <Header />
       <Hero />
+      <Cataloge />
     </>
   )
 }
