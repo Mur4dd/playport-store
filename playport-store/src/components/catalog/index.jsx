@@ -14,15 +14,15 @@ function index() {
 
     return (
         // Container of Cataloge
-        <div className='container mx-auto text-white font-montserrat uppercase pt-10 pb-10'>
+        <div className='container mx-auto text-black font-montserrat uppercase pt-10 pb-20'>
             {/* Header of Catalog */}
-            <div className='font-semibold md:text-[16px] lg:text-[20px] xl:text-[22px] text-center'>
+            <div className='font-semibold md:text-[20px] lg:text-[24px] xl:text-[26px] text-center text-white'>
                 <h1>kataloq</h1>
             </div>
-            <div className='flex flex-wrap md:justify-between gap-20 pt-10 justify-center'>
+            <div className='flex flex-wrap md:justify-between gap-20 pt-10 justify-center '>
                 {/* Product Cards */}
                 {products && products.map(result => (
-                    <div key={result.id} className='flex flex-col justify-between rounded-[10px] border-2 border-white p-2.5 w-[300px] h-[400px] gap-2.5 shadow-xl shadow-blue-500 hover:scale-105 transition-transform duration-300 hover:cursor-pointer'>
+                    <div key={result.id} className='flex flex-col justify-between rounded-[10px] border-2 border-white p-2.5 w-[300px] h-[400px] gap-2.5 hover:shadow-xl shadow-blue-500 hover:scale-105 transition-transform duration-300 hover:cursor-pointer bg-white'>
                         <div>
                             <img src={result.image} alt="productImage" className='w-[90%] h-[150px] justify-self-center border-b-2 border-white p-2' />
                         </div>
@@ -34,7 +34,7 @@ function index() {
                             <h6 className='font-bold'>{result.price} {result.currency}</h6>
                         </div>
                         <div>
-                            <button className='bg-blue-800 rounded-[10px] w-full h-10 uppercase font-bold cursor-pointer hover:bg-blue-950 transition duration-300'>səbətə at</button>
+                            <button className='bg-blue-800 rounded-[10px] w-full h-10 text-white uppercase font-bold cursor-pointer hover:bg-blue-950 transition duration-300'>səbətə at</button>
                         </div>
                     </div>
                 ))}

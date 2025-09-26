@@ -5,6 +5,7 @@ import './App.css'
 import Header from './components/header'
 import Hero from './components/hero'
 import Cataloge from './components/catalog'
+import Subscription from './components/subscription'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <Hero />
       <Cataloge />
+      <Subscription />
     </>
   )
 }

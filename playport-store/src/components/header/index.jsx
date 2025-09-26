@@ -116,7 +116,7 @@ function index() {
                         {/* Navigation links */}
                         <div className='flex items-center space-x-8 font-semibold md:text-[12px] lg:text-[16px] xl:text-[18px]'>
                             <a href="#" className='hover:text-blue-800 transition duration-300'>haqqımızda</a>
-                            <a href="#" className='hover:text-blue-800 transition duration-300'>məhsullar</a>
+                            <a href="#" className='hover:text-blue-800 transition duration-300'>kataloq</a>
                             <a href="#" className='hover:text-blue-800 transition duration-300'>əlaqə</a>
                         </div>
                         {/* Search area */}
