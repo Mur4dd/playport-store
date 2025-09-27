@@ -1,13 +1,15 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 
+const api_url = import.meta.env.VITE_API_URL
+
 const initialState = {
     products: []
 }
 
 export const getAllProducts = createAsyncThunk('products', async () => {
     try {
-        const response = await axios.get('http://localhost:3001/products')
+        const response = await axios.get(api_url)
         const products = response.data
         console.log(products);
         return products
