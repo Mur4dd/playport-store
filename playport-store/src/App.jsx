@@ -6,6 +6,7 @@ import Header from './components/header'
 import Hero from './components/hero'
 import Cataloge from './components/catalog'
 import Subscription from './components/subscription'
+import Footer from './components/footer'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Hero />
       <Cataloge />
       <Subscription />
+      <Footer />
     </>
   )
 }
