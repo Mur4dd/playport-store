@@ -12,7 +12,7 @@ function index() {
     <div className='bg-blue-800 uppercase text-white font-montserrat flex flex-col gap-7 pt-8 pb-8 pl-2.5 pr-2.5'>
         <div className='text-center flex flex-col gap-2.5 md:text-[14px] lg:text-[18px] xl:text-[20px]'>
             <h1>üzv olun</h1>
-            <p className='opacity-80'>sizdə son yeniliklərdən xəbərdar olmaq üçün email ünvanınız ilə bizə üzv olun</p>
+            <p className='opacity-80 italic'>sizdə son yeniliklərdən xəbərdar olmaq üçün email ünvanınız ilə bizə üzv olun</p>
         </div>
         <div className='flex justify-center'>
             <div className='border-white border-2 rounded-[5px] flex justify-between'>

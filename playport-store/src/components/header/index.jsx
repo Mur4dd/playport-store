@@ -46,7 +46,7 @@ function index() {
     return (
         <>
             {/* Header section for the PlayPort store */}
-            <header className='bg-black py-4 md:py-6 lg:py-8 xl:py-10 text-white uppercase font-montserrat'>
+            <header className='bg-black py-4 md:py-6 lg:py-8 xl:py-10 text-white uppercase font-montserrat sticky top-0 z-999'>
                 {/* Container for the header content */}
                 <div className='container mx-auto flex items-center justify-between md:space-x-16 relative'>
                     {/* Logo section */}
@@ -105,7 +105,7 @@ function index() {
                         <div className='md:hidden flex justify-center font-semibold absolute z-50 top-full left-0 bg-white rounded-lg shadow-lg p-4 w-full'>
                             <ul className='space-y-2'>
                                 <li><a href="#" className='block text-black hover:text-blue-900 transition duration-300 border-l-1 pl-0.5'>haqqımızda</a></li>
-                                <li><a href="#" className='block text-black hover:text-blue-900 transition duration-300 border-l-1 pl-0.5'>məhsullar</a></li>
+                                <li><a href="#" className='block text-black hover:text-blue-900 transition duration-300 border-l-1 pl-0.5'>kataloq</a></li>
                                 <li><a href="#" className='block text-black hover:text-blue-900 transition duration-300 border-l-1 pl-0.5'>əlaqə</a></li>
                             </ul>
                         </div>
